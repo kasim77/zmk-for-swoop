@@ -39,6 +39,17 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <180>;
         };
+
+        layerholdtap: layerholdtap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYERHOLDTAP";
+            bindings = <&lt>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <180>;
+            flavor = "tap-preferred";
+        };
     };
 
     combos {
@@ -74,10 +85,10 @@
         base {
             label = "Base";
             bindings = <
-&kp Q  &kp W  &kp E           &kp R        &kp T            &kp Y      &kp U         &kp I            &kp O            &kp P
-&kp A  &kp S  &kp D           &ltq 4 F     &kp G            &kp H      &kp J         &gqt LEFT_WIN K  &gqt LEFT_ALT L  &gqt RCTRL SEMICOLON
-&kp Z  &kp X  &kp C           &kp V        &ltq 3 B         &ltq 3 N   &kp M         &kp COMMA        &kp DOT          &ltq 5 SLASH
-              &gqt LCTRL TAB  &lt 1 SPACE  &kp BACKSPACE    &kp ENTER  &ltq 2 SPACE  &kp LEFT_SHIFT
+&kp Q  &kp W  &kp E           &kp R              &kp T                &kp Y              &kp U         &kp I            &kp O            &kp P
+&kp A  &kp S  &kp D           &layerholdtap 4 F  &kp G                &kp H              &kp J         &gqt LEFT_WIN K  &gqt LEFT_ALT L  &gqt RCTRL SEMICOLON
+&kp Z  &kp X  &kp C           &kp V              &layerholdtap 3 B    &layerholdtap 3 N  &kp M         &kp COMMA        &kp DOT          &layerholdtap 5 SLASH
+              &gqt LCTRL TAB  &lt 1 SPACE        &kp BACKSPACE        &kp ENTER          &ltq 2 SPACE  &kp LEFT_SHIFT
             >;
         };
 
